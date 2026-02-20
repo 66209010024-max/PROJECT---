@@ -1,0 +1,304 @@
+:root{
+  --bg:#0b0b0b;
+  --panel:#0f0f0f;
+  --muted:#9a9a9a;
+  --accent:#d32f2f; /* แดง 20% เป็น accent */
+  --glass: rgba(255,255,255,0.03);
+  --radius:14px;
+  --maxw:1100px;
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--font);
+  background:linear-gradient(180deg, var(--bg) 0%, #060606 100%);
+  color:#eaeaea;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
+}
+
+.container{
+  width:100%;
+  max-width:var(--maxw);
+  display:grid;
+  grid-template-columns: 1fr 450px;
+  gap:28px;
+  align-items:stretch;
+}
+
+/* LEFT */
+.left-panel{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-radius:var(--radius);
+  padding:36px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+  min-height:420px;
+}
+
+.brand{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+.logo{
+  width:64px;
+  height:64px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.04);
+  font-weight:700;
+  font-size:20px;
+  color:var(--accent);
+}
+.brand-text h1{
+  margin:0;
+  font-size:20px;
+  letter-spacing:0.4px;
+}
+.brand-text p{ margin:0; color:var(--muted); font-size:13px }
+
+.hero h2{ margin-top:36px; margin-bottom:8px; font-size:28px; }
+.hero p{ margin:0; color:var(--muted); max-width:60%; line-height:1.5; }
+
+.left-footer{ color:var(--muted); font-size:13px; }
+
+/* RIGHT */
+.right-panel{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:420px;
+}
+
+.login-card{
+  width:100%;
+  background:var(--panel);
+  border-radius:14px;
+  padding:28px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  border:1px solid rgba(255,255,255,0.03);
+}
+.login-card h3{ margin:0 0 6px 0; font-size:20px }
+.login-card .sub{ margin:0 0 18px 0; color:var(--muted); font-size:13px }
+
+.field{ display:block; margin-bottom:14px; font-size:13px }
+.field span{ display:block; margin-bottom:8px; color:var(--muted); font-weight:600; font-size:13px }
+.field input[type="email"],
+.field input[type="password"]{
+  width:100%;
+  padding:12px 14px;
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,0.04);
+  color:inherit;
+  border-radius:10px;
+  outline:none;
+  font-size:14px;
+}
+.password-wrap{ display:flex; gap:8px; align-items:center }
+.password-wrap button{
+  background:transparent;
+  border:none;
+  color:var(--accent);
+  font-weight:600;
+  cursor:pointer;
+  padding:8px;
+  border-radius:8px;
+}
+
+/* row */
+.row{ display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
+.checkbox{ display:flex; gap:8px; align-items:center; color:var(--muted); font-size:13px }
+.checkbox input{ width:16px; height:16px; transform:translateY(1px) }
+.forgot{ color:var(--muted); font-size:13px; text-decoration:none }
+
+/* buttons */
+.btn{
+  display:inline-block;
+  width:100%;
+  padding:12px 14px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.03);
+  cursor:pointer;
+  font-weight:600;
+  font-size:14px;
+  background:transparent;
+  color:inherit;
+}
+.btn.primary{
+  background:linear-gradient(90deg, var(--accent), #b71c1c);
+  border:none;
+  color:#fff;
+  box-shadow:0 8px 24px rgba(211,47,47,0.18);
+}
+.divider{
+  text-align:center;
+  margin:14px 0;
+  position:relative;
+  color:var(--muted);
+}
+.divider span{
+  background:transparent;
+  padding:0 10px;
+  position:relative;
+  z-index:2;
+}
+.divider:before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:50%;
+  height:1px;
+  background:rgba(255,255,255,0.03);
+  transform:translateY(-50%);
+}
+
+/* socials */
+.socials{ display:grid; gap:8px }
+.btn.social{ background:transparent; border:1px solid rgba(255,255,255,0.04) }
+.btn.google::before{ content:"G "; font-weight:700; margin-right:6px }
+.btn.apple::before{ content:" "; margin-right:6px }
+
+/* signup */
+.signup{ text-align:center; margin-top:12px; color:var(--muted); font-size:13px }
+.signup a{ color:var(--accent); text-decoration:none; font-weight:600 }
+
+/* responsive */
+@media (max-width:920px){
+  .container{ grid-template-columns:1fr; gap:18px; padding:0 8px }
+  .left-panel{ order:2; min-height:220px }
+  .right-panel{ order:1 }
+  .hero p{ max-width:100% }
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.671);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left,
+.navbar-center,
+.navbar-right {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-center {
+    justify-content: center;
+}
+
+.navbar-right {
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.dropdown {
+    padding: 10px 0;
+    position: relative;
+    display: inline-block;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    padding: 10px 0;
+}
+
+.nav-item:hover {
+    color: #ff3333;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 10px 0;
+}
+
+.dropdown-menu a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: 100;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ff3333;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.icon-link i {
+    color: white !important;
+    transition: color 0.3s ease;
+}
+
+.icon-link:hover i {
+    color: #ff3333 !important;
+}
+
+/* Main Content (เนื้อหากลางหน้า) */
+.main-content {
+    margin-top: 120px; /* ดันลงจาก Navbar */
+    margin-bottom: 100px; /* เผื่อพื้นที่เหนือ Footer */
+    text-align: center;
+}
+
+.main-content h1 {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.main-content p {
+    font-size: 18px;
+    color: #ccc;
+}

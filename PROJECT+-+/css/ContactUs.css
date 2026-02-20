@@ -1,0 +1,320 @@
+/* ==================================== */
+/* GLOBAL & BASE STYLES        */
+/* ==================================== */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: white; /* ตัวอักษรหลักเป็นสีขาว */
+    overflow-x: hidden;
+    background-color: black; /* พื้นหลังหลักเป็นสีดำ */
+}
+
+/* ==================================== */
+/* NAVBAR (คงไว้เหมือนเดิม)      */
+/* ==================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.671);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left, .navbar-center, .navbar-right {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-center { justify-content: center; }
+.navbar-right { justify-content: flex-end; gap: 20px; }
+.main-nav { display: flex; align-items: center; gap: 30px; }
+.dropdown { padding: 10px 0; position: relative; display: inline-block; }
+
+.nav-item {
+    text-decoration: none;
+    color: white;
+    font-weight: 500; /* Medium */
+    font-size: 14px;
+    transition: color 0.3s ease;
+    padding: 10px 0;
+}
+
+.nav-item:hover { color: #ff3333; }
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(30, 30, 30, 0.9); /* พื้นหลังเข้มสำหรับเมนูย่อย */
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px; /* มีขอบมนอยู่แล้ว */
+    padding: 10px 0;
+}
+
+.dropdown-menu a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: 400; /* Regular */
+    transition: background-color 0.3s ease;
+}
+.dropdown-menu a:hover { background-color: #ff3333; }
+.dropdown:hover .dropdown-menu { display: block; }
+
+.icon-link i { color: white !important; transition: color 0.3s ease; }
+.icon-link:hover i { color: #ff3333 !important; }
+
+/* ==================================== */
+/* MAIN CONTENT (INFO BLOCK - ปรับขอบมน) */
+/* ==================================== */
+
+.main-content {
+    margin-top: 100px;
+    margin-bottom: 80px; 
+    padding: 0 50px; 
+    background-color: black;
+    text-align: left;
+}
+
+.info-block-container {
+    display: flex;
+    max-width: 1200px; 
+    margin: 0 auto;
+    background-color: #1a1a1a; 
+    color: white; 
+    border-radius: 8px; /* ปรับให้โค้งมนขึ้น */
+    box-shadow: 0 5px 20px rgba(141, 141, 141, 0.5);
+    overflow: hidden; /* เพื่อให้ border-radius ทำงานได้ดีกับ child elements */
+}
+
+/* --- คอลัมน์ซ้าย: ข้อมูลบริษัท --- */
+.info-details {
+    flex: 1;
+    padding: 70px 40px; 
+    background-color: #050505; 
+    border-right: 1px solid #333; 
+    /* ไม่ต้องใส่ border-radius ซ้ำ เพราะ parent มีแล้วและใช้ overflow: hidden */
+}
+
+.company-tag {
+    display: inline-block;
+    background-color: #ff3333;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    margin-bottom: 30px; 
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%); 
+    line-height: 1;
+}
+
+.company-name {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 0 30px;
+    color: white; 
+}
+
+.address {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #b0b0b0; 
+    margin-bottom: 40px;
+    padding-right: 50px;
+}
+
+.social-section { margin-top: 20px; }
+
+.social-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ff3333;
+    display: inline-block;
+    padding-bottom: 5px;
+    color: white; 
+}
+
+.info-social-links { display: flex; gap: 15px; margin-top: 20px; }
+.social-icon {
+    color: #e0e0e0; 
+    font-size: 18px;
+    width: 35px;
+    height: 35px;
+    background-color: #333; 
+    border-radius: 50%; /* อันนี้ต้องมนกลมอยู่แล้ว */
+    display: flex; align-items: center; justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+.social-icon:hover { background-color: #ff3333; color: white; }
+
+/* --- คอลัมน์ขวา: ฟอร์มติดต่อ --- */
+.form-area {
+    flex: 1;
+    padding: 70px 60px;
+    background-color: #2a2a2a; 
+    /* ไม่ต้องใส่ border-radius ซ้ำ เพราะ parent มีแล้วและใช้ overflow: hidden */
+}
+
+.form-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 0 30px;
+    color: white; 
+}
+
+.contact-form-custom { display: flex; flex-direction: column; gap: 20px; }
+.form-row-split { display: flex; gap: 20px; }
+.form-group-custom { flex: 1; display: flex; flex-direction: column; gap: 5px; }
+
+.form-group-custom label {
+    font-size: 13px;
+    font-weight: 500;
+    color: white; 
+}
+
+.form-group-custom input[type="text"],
+.form-group-custom input[type="email"],
+.form-group-custom input[type="tel"],
+.form-group-custom textarea {
+    width: 100%;
+    padding: 12px 15px; 
+    border: 1px solid #555; 
+    background-color: #3d3d3d; 
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 3px; /* ทำให้ Input มีขอบมนเล็กน้อย */
+    box-sizing: border-box;
+}
+
+.form-group-custom textarea {
+    resize: vertical; 
+    min-height: 120px; 
+}
+
+.form-group-custom input:focus,
+.form-group-custom textarea:focus {
+    border-color: #ff3333; 
+    outline: none;
+    background-color: #3d3d3d;
+}
+
+/* Checkbox and Terms */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    font-size: 13px;
+    font-weight: 400;
+    color: #b0b0b0; 
+    margin-top: 5px;
+}
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    margin-top: 4px;
+    transform: scale(1.1);
+    border-radius: 3px; /* ให้ checkbox มีขอบมนเล็กน้อย */
+}
+
+.red-link {
+    color: #ff3333;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px dotted #ff3333;
+}
+
+/* reCAPTCHA Placeholder */
+.recaptcha-placeholder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #555;
+    padding: 10px; 
+    margin-top: 15px;
+    max-width: 300px;
+    background-color: #333; 
+    border-radius: 3px; /* ปรับให้โค้งมนเล็กน้อย */
+}
+.recaptcha-checkbox { display: flex; align-items: center; font-size: 14px; color: white; }
+.recaptcha-checkbox label { font-size: 13px; font-weight: 400; }
+.recaptcha-checkbox input[type="checkbox"] { margin-right: 10px; }
+.recaptcha-logo-text { text-align: right; line-height: 1; }
+.recaptcha-logo-text small { font-size: 8px; color: #999; display: block; margin-top: 2px; }
+
+/* Submit Button Custom */
+.submit-button-custom {
+    background-color: #cccccc; 
+    color: black; 
+    border: none;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 3px; /* ทำให้ปุ่มมีขอบมนเล็กน้อย */
+    width: auto; 
+    align-self: flex-start; 
+    margin-top: 5px;
+    transition: background-color 0.3s ease;
+}
+.submit-button-custom:hover { background-color: #b0b0b0; }
+
+/* ==================================== */
+/* FOOTER (คงไว้เหมือนเดิม)      */
+/* ==================================== */
+.contact-footer {
+    background-color: black;
+    color: white;
+    padding: 80px 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer-content { display: flex; justify-content: space-between; gap: 50px; max-width: 1200px; margin: 0 auto; }
+.footer-left { flex-basis: 35%; display: flex; flex-direction: column; align-items: flex-start; }
+.footer-right { flex-basis: 60%; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+
+.footer-name { font-size: 20px; font-weight: 700; margin: 0 0 10px; }
+.footer-role { font-size: 14px; font-weight: 400; color: #a0a0a0; margin: 0 0 30px; }
+.contact-info p { font-size: 14px; margin: 0; line-height: 1.5; }
+.footer-email { font-size: 14px; color: white; text-decoration: none; margin-top: 10px; display: inline-block; transition: color 0.3s ease; }
+.footer-email:hover { color: #ff3333; }
+.social-links { margin-top: 30px; }
+.social-links a { color: white; font-size: 20px; margin-right: 20px; transition: color 0.3s ease; }
+.social-links a:hover { color: #ff3333; }
+.quote { font-size: 18px; line-height: 1.4; font-weight: 400; margin: 0; }
+
+
+/* ==================================== */
+/* RESPONSIVE CSS (คงไว้เหมือนเดิม) */
+/* ==================================== */
+@media (max-width: 992px) {
+    .info-block-container { flex-direction: column; border-radius: 8px; } /* ต้องให้มนใน responsive ด้วย */
+    .info-details, .form-area { padding: 40px 25px; }
+    .form-row-split { flex-direction: column; gap: 0; }
+    .info-details { border-right: none; border-bottom: 1px solid #333; } 
+    .main-content { padding: 0 20px; }
+}
+
+@media (max-width: 768px) {
+    .footer-content { flex-direction: column; text-align: center; }
+    .footer-left, .footer-right { flex-basis: 100%; align-items: center; }
+    .social-links { margin-top: 20px; }
+    .contact-info { margin-bottom: 20px; }
+    .quote { font-size: 20px; }
+    .navbar { padding: 15px 20px; }
+}

@@ -1,0 +1,462 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    overflow-x: hidden;
+    background-color: black;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.671);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left,
+.navbar-center,
+.navbar-right {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-center {
+    justify-content: center;
+}
+
+.navbar-right {
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.dropdown {
+    padding: 10px 0;
+    position: relative;
+    display: inline-block;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    padding: 10px 0;
+}
+
+.nav-item:hover {
+    color: #ff3333;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 10px 0;
+}
+
+.dropdown-menu a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: 100;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ff3333;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.icon-link i {
+    color: white !important;
+    transition: color 0.3s ease;
+}
+
+.icon-link:hover i {
+    color: #ff3333 !important;
+}
+
+/* Main Content (เนื้อหากลางหน้า) */
+.main-content {
+    margin-top: 120px; /* ดันลงจาก Navbar */
+    margin-bottom: 100px; /* เผื่อพื้นที่เหนือ Footer */
+    text-align: center;
+}
+
+.main-content h1 {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.main-content p {
+    font-size: 18px;
+    color: #ccc;
+}
+
+/* Footer */
+.contact-footer {
+    background-color: black;
+    color: white;
+    padding: 80px 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left {
+    flex-basis: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-right {
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 10px;
+}
+
+.footer-role {
+    font-size: 14px;
+    font-weight: 400;
+    color: #a0a0a0;
+    margin: 0 0 30px;
+}
+
+.contact-info p {
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.footer-email {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.footer-email:hover {
+    color: #ff3333;
+}
+
+.social-links {
+    margin-top: 30px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 20px;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ff3333;
+}
+
+.quote {
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left,
+    .footer-right {
+        flex-basis: 100%;
+        align-items: center;
+    }
+
+    .social-links {
+        margin-top: 20px;
+    }
+
+    .contact-info {
+        margin-bottom: 20px;
+    }
+
+    .quote {
+        font-size: 20px;
+    }
+}
+
+/* Lock Montserrat แต่ไม่ทับ Font Awesome */
+.navbar,
+.navbar *:not(i):not(.fa):not([class^="fa-"]),
+.contact-footer,
+.contact-footer *:not(i):not(.fa):not([class^="fa-"]) {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/* บังคับ Font Awesome ให้ icon */
+.fa,
+.fa-solid,
+.fa-regular,
+.fa-brands {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900;
+}
+
+
+.minimal-review-container {
+    max-width: 1100px;
+    margin: 120px auto 100px;
+    padding: 0 20px;
+}
+
+/* Page Title */
+.page-title {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.sub-title {
+    font-size: 0.75rem;
+    letter-spacing: 5px;
+    color: #888;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.page-title h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Featured Box (กล่องใหญ่เด่นๆ พร้อมรูป และขอบมน) */
+.featured-minimal-box {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    padding: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    text-align: left;
+    border-radius: 16px; /* [NEW] เพิ่มขอบมน */
+    overflow: hidden; /* เพื่อให้เนื้อหาภายในไม่ล้นขอบมน */
+}
+
+.result-badge {
+    font-size: 0.7rem;
+    color: #ff0000;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.main-testimonial-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.testimonial-text {
+    padding-right: 20px;
+}
+
+.main-testimonial {
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #eee;
+    font-style: italic;
+    margin: 0 0 30px 0;
+}
+
+.client-meta span {
+    display: block;
+}
+
+.client-name { font-weight: bold; font-size: 1.1rem; }
+.client-position { font-size: 0.8rem; color: #666; margin-top: 5px; letter-spacing: 1px; }
+
+.testimonial-image {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.testimonial-image img {
+    width: 48%;
+    height: 250px; /* กำหนดความสูงให้เท่ากัน */
+    object-fit: cover; /* ให้รูปเต็มกรอบโดยไม่บิดเบี้ยว */
+    border: 1px solid #333;
+    filter: grayscale(80%);
+    transition: filter 0.3s ease;
+    border-radius: 12px; /* [NEW] เพิ่มขอบมนให้รูปภาพ */
+}
+
+.testimonial-image img.after-img {
+    filter: none;
+    border-color: #ff0000;
+}
+
+/* Grid Cards (กล่องย่อยพร้อม Avatar และขอบมน) */
+.minimal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.minimal-card {
+    background: #080808;
+    border: 1px solid #151515;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.3s ease;
+    border-radius: 16px; /* [NEW] เพิ่มขอบมน */
+}
+
+.minimal-card:hover {
+    border-color: #ff0000;
+    transform: translateY(-5px); /* เพิ่มลูกเล่นขยับนิดหน่อยตอน Hover */
+}
+
+.card-head-with-avatar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.client-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* รูปวงกลม */
+    background-color: #333;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #ff0000;
+    flex-shrink: 0;
+}
+
+.card-info strong { display: block; font-size: 0.95rem; color: #fff; }
+.card-info small { font-size: 0.75rem; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+
+
+.card-accent {
+    width: 30px;
+    height: 2px;
+    background: #ff0000;
+    margin-bottom: 20px;
+}
+
+.minimal-card p {
+    font-family: 'Kanit', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #bbb; /* ปรับสีให้อ่านง่ายขึ้นอีกนิด */
+    margin-bottom: 0;
+    flex-grow: 1;
+}
+
+
+/* Footer & Button (ปุ่มขอบมน) */
+.minimal-footer {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.minimal-footer p { font-size: 0.9rem; color: #666; margin-bottom: 25px; }
+
+.minimal-btn {
+    display: inline-block;
+    padding: 15px 45px;
+    border: 2px solid #ff0000; /* เพิ่มความหนาขอบนิดนึง */
+    color: white;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    border-radius: 30px; /* [NEW] ปุ่มทรงแคปซูลขอบมน */
+}
+
+.minimal-btn:hover {
+    background: #ff0000;
+    color: black; /* เปลี่ยนสีตัวอักษรตอน hover ให้อ่านง่าย */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-title h1 { font-size: 2.2rem; }
+    .main-testimonial { font-size: 1.1rem; } /* ลดขนาดฟอนต์บนมือถือ */
+    .minimal-review-container { margin-top: 100px; }
+    .main-testimonial-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .testimonial-image {
+        justify-content: center;
+    }
+    .testimonial-image img {
+        height: 200px; /* ลดความสูงรูปบนมือถือ */
+    }
+    .featured-minimal-box { text-align: center; padding: 30px; }
+    .testimonial-text { padding-right: 0; }
+    .client-avatar { width: 50px; height: 50px; } /* ลดขนาด avatar บนมือถือ */
+}
+

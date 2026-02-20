@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ดูรูปภาพ</title>
+
+<style>
+  body {
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+  }
+
+  .gallery {
+    position: relative;
+    width: 300px;
+    height: 200px;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  .btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .left {
+    left: 5px;
+  }
+
+  .right {
+    right: 5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="gallery">
+  <span class="btn left" onclick="prev()">◀</span>
+  <img id="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZSSJGnwLzlO5V0cegRM_qXPTyc7ahEIh33g&s">
+  <span class="btn right" onclick="next()">▶</span>
+</div>
+
+<script>
+const images = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZSSJGnwLzlO5V0cegRM_qXPTyc7ahEIh33g&s", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREdMDwfvwb3TXAQp_0uSjO6iBDKJG0o6yowA&s", "https://storage.googleapis.com/fastwork-static/d01bdaf5-3e42-4b42-9f5b-7accf682b6c6.jpg"];
+let index = 0;
+
+function prev() {
+  index--;
+  if (index < 0) index = images.length - 1;
+  document.getElementById("photo").src = images[index];
+}
+
+function next() {
+  index++;
+  if (index >= images.length) index = 0;
+  document.getElementById("photo").src = images[index];
+}
+</script>
+
+</body>
+</html>
